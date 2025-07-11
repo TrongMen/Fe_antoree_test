@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Khóa học Tiếng Anh giao tiếp",
+    "price": 750000,
+    "image": "https://via.placeholder.com/400x200",
+    "shortDesc": "Giao tiếp cơ bản với người bản xứ",
+    "longDesc": "Khóa học này giúp bạn cải thiện kỹ năng nghe nói tiếng Anh thông qua các tình huống giao tiếp thực tế."  
+  },
+  {
+    "id": 2,
+    "name": "Lập trình React cơ bản",
+    "price": 980000,
+    "image": "https://via.placeholder.com/400x200",
+    "shortDesc": "Xây dựng ứng dụng web với React",
+    "longDesc": "Học cách xây dựng các component, quản lý state và tích hợp API với React từ A đến Z."
+  },
+  {
+    "id": 3,
+    "name": "Khóa học Thiết kế UI/UX",
+    "price": 1200000,
+    "image": "https://via.placeholder.com/400x200",
+    "shortDesc": "Trở thành nhà thiết kế sản phẩm số",
+    "longDesc": "Khóa học toàn diện từ thiết kế tư duy đến prototyping chuyên nghiệp bằng Figma."
+  }
+]
