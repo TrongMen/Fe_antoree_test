@@ -19,6 +19,9 @@ export default function ProductList() {
 
   return (
     <div>
+      <div>
+        <h1 className="text-3xl font-bold mb-4">Chào mừng bạn đến với Antoree</h1>
+      </div>
       <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
         <input
           type="text"
