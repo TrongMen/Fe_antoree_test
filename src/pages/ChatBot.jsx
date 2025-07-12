@@ -1,8 +1,24 @@
-import { useState } from 'react';
-import products from '../data/products.json';
+import { useState , useEffect} from 'react';
+// import products from '../data/products.json';
 export default function ChatBot() {
+  const [products, setProducts] = useState([]);
   const [input, setInput] = useState('');
   const [result, setResult] = useState([]);
+
+  // Fetch products from an API or use local data
+   useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://6871e3c576a5723aacd2fb84.mockapi.io/api/product');
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []); 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const matches = products.filter((p) =>

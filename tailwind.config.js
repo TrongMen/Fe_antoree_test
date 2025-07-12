@@ -12,7 +12,11 @@
       lobster: ['Lobster', 'sans-serif'],
       sofia: ['Sofia', 'sans-serif'],
       
-    }
+    },
+    animation: {
+        spinSlow: 'spin 3s linear infinite',
+      },
+    
   }
 },
     plugins: [],

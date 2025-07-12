@@ -1,11 +1,25 @@
-import { useState } from 'react';
-import products from '../data/products.json';
+import { useState , useEffect} from 'react';
+// import products from '../data/products.json';
 import ProductCard from '../components/ProductCard';
 import SuggestionSection from '../components/SuggestionSection';
-
+import axios from 'axios';
 export default function ProductList() {
+  const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
   const [priceFilter, setPriceFilter] = useState('all');
+
+   useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://6871e3c576a5723aacd2fb84.mockapi.io/api/product');
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []); 
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(search.toLowerCase());

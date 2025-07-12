@@ -5,11 +5,16 @@ export default function History() {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-4">🕘 Lịch sử xem</h2>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {history.length === 0 ? (
+        <p className="text-gray-500">Bạn chưa xem sản phẩm nào.</p>
+      ):(
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         {history.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
+      )}
+      
     </div>
   );
 }

@@ -1,8 +1,11 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import ProductList from './pages/ProductList';
-import Favorites from './pages/Favorites';
-import History from './pages/History';
-import ChatBot from './pages/ChatBot';
+import { Suspense, lazy } from 'react';
+import LoadingCircle from './components/LoadingCircle';
+
+const ProductList = lazy(() => import('./pages/ProductList'));
+const Favorites = lazy(() => import('./pages/Favorites'));
+const History = lazy(() => import('./pages/History'));
+const ChatBot = lazy(() => import('./pages/ChatBot'));
 
 export default function App() {
   return (
@@ -19,12 +22,14 @@ export default function App() {
         </div>
       </nav>
       <div className="p-6 max-w-7xl mx-auto">
-        <Routes>
-          <Route path="/" element={<ProductList />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/chatbot" element={<ChatBot />} />
-        </Routes>
+        <Suspense fallback={<LoadingCircle />}>
+          <Routes>
+            <Route path="/" element={<ProductList />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/chatbot" element={<ChatBot />} />
+          </Routes>
+        </Suspense>
       </div>
     </div>
   );
