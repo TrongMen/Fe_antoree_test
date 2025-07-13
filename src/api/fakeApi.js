@@ -1,10 +1,10 @@
 const products = [
   {
     id: 1,
-    name: "Khóa học React cơ bản",
+    name: "Học tiếng anh giao tiếp",
     price: 700000,
     image: "/react.png",
-    shortDesc: "Học React từ cơ bản đến nâng cao",
+    shortDesc: "Khóa học tiếng anh giao tiếp cơ bản",
     longDesc: "Khóa học toàn diện về React, JSX, hooks...",
     rating: 4.8,
   },
@@ -22,7 +22,7 @@ const products = [
     price: 1100000,
     image: "/react.png",
     shortDesc: "Học Java từ cơ bản đến nâng cao",
-    longDesc: "",
+    longDesc: " Khóa học toàn diện về Java, từ cơ bản đến nâng cao",
     rating: 4.8,
   },{
     id: 4,
