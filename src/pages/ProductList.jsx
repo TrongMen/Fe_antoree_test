@@ -33,10 +33,10 @@ export default function ProductList() {
 
   return (
     <div>
-      <div className='flex flex-col items-center mb-6'>
+      <div className='flex flex-col items-center mb-6 bg-white shadow-md p-6 rounded-lg'>
         <h1 className="text-4xl font-bold mb-4">Chào mừng bạn đến với <span className="text-green-400">Antoree</span> </h1>
       </div>
-      <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center ">
         <input
           type="text"
           placeholder="Tìm kiếm sản phẩm..."
@@ -55,8 +55,8 @@ export default function ProductList() {
           <option value=">1m">Trên 1 triệu</option>
         </select>
       </div>
-
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6  bg-white shadow-md p-6 rounded-lg">
         {filteredProducts.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
