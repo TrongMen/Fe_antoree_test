@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
   );
 };
 return (
-  <div className="bg-white rounded shadow hover:shadow-lg flex flex-col h-full">
+  <div className="bg-white rounded shadow hover:shadow-xl flex flex-col h-full">
     <img
       src={product.image}
       alt={product.name}
@@ -49,7 +49,7 @@ return (
             isFavorite ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'
           }`}
         >
-          {isFavorite ? '❤️ Đã thích' : '🤍 Yêu thích'}
+          {isFavorite ? '❤️ ' : '🤍'}
         </button>
       </div>
     </div>

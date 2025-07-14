@@ -14,7 +14,7 @@ export default function App() {
   const [showChatBot, setShowChatBot] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
-
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -45,8 +45,8 @@ export default function App() {
         >
           Anto<span className="text-green-500">ree</span>
         </h1>
-
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-6 text-lg text-gray-600 font-bold">
+        {/* Web */}
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-6 text-lg text-gray-600 font-bold">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -85,33 +85,95 @@ export default function App() {
           >
             Lịch sử
           </NavLink>
+          <NavLink
+              to="/about"
+              className={({ isActive }) =>
+              `transition ${
+                isActive
+                  ? "text-green-400 font-semibold border-b-2 border-green-600"
+                  : "text-gray-600 hover:text-green-600"
+              }`
+            }
+          >
+              Giới thiệu
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+              `transition ${
+                isActive
+                  ? "text-green-400 font-semibold border-b-2 border-green-600"
+                  : "text-gray-600 hover:text-green-600"
+              }`
+            }
+          >
+              Liên hệ
+            </NavLink>
         </div>
-        <div className="flex items-center space-x-4 text-md text-gray-600 font-bold relative">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `transition ${
-                isActive
-                  ? "text-green-400 font-semibold border-b-2 border-green-600"
-                  : "text-gray-600 hover:text-green-600"
-              }`
-            }
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            className="text-gray-600 focus:outline-none"
           >
-            Giới thiệu
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `transition ${
-                isActive
-                  ? "text-green-400 font-semibold border-b-2 border-green-600"
-                  : "text-gray-600 hover:text-green-600"
-              }`
-            }
-          >
-            Liên hệ
-          </NavLink>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
 
+        {/* Mobile Menu */}
+        {showMobileMenu && (
+          <div className="md:hidden absolute w-full top-full left-0 bg-white shadow-lg rounded-b-lg px-6 py-4 space-y-3 z-50">
+            <NavLink
+              to="/"
+              onClick={() => setShowMobileMenu(false)}
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+            >
+              Trang chủ
+            </NavLink>
+            <NavLink
+              to="/favorites"
+              onClick={() => setShowMobileMenu(false)}
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+            >
+              Yêu thích
+            </NavLink>
+            <NavLink
+              to="/history"
+              onClick={() => setShowMobileMenu(false)}
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+            >
+              Lịch sử
+            </NavLink>
+            <NavLink
+              to="/about"
+              onClick={() => setShowMobileMenu(false)}
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+            >
+              Giới thiệu
+            </NavLink>
+            <NavLink
+              to="/contact"
+              onClick={() => setShowMobileMenu(false)}
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+            >
+              Liên hệ
+            </NavLink>
+          </div>
+        )}
+
+        <div className="flex items-center space-x-4 text-md text-gray-600 font-bold relative">
           <div
             onClick={() => setShowDropdown(!showDropdown)}
             className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition"
@@ -139,7 +201,7 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="p-6 max-w-7xl mx-auto">
+      <div className="pr-6 pl-6 pb-6 pt-3 max-w-7xl mx-auto">
         <Suspense fallback={<LoadingCircle />}>
           <Routes>
             <Route path="/" element={<ProductList />} />
