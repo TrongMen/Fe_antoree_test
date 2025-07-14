@@ -34,7 +34,9 @@ export default function App() {
     alert("Đã đăng xuất");
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-sky-50 font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-white to-sky-50 font-sans"
+    // style={{ backgroundImage: "url('https://mega.com.vn/media/news/2406_hinh-nen-green-4k26.jpg')" }}
+    >
       <nav className="bg-white shadow-md pt-3 pr-6 pb-3 pl-6 flex justify-between items-center sticky top-0 z-10">
         <h1
           onClick={() => (window.location.href = "/")}
