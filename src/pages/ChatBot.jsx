@@ -1,11 +1,11 @@
 import { useState , useEffect} from 'react';
 // import products from '../data/products.json';
+import axios from 'axios';
 export default function ChatBot() {
   const [products, setProducts] = useState([]);
   const [input, setInput] = useState('');
   const [result, setResult] = useState([]);
 
-  // Fetch products from an API or use local data
    useEffect(() => {
     const fetchProducts = async () => {
       try {

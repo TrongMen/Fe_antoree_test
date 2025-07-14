@@ -3,7 +3,6 @@ import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import LoadingCircle from "./components/LoadingCircle";
 import { FaUserCircle } from "react-icons/fa";
 
-// Lazy load các trang
 const ProductList = lazy(() => import("./pages/ProductList"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 const History = lazy(() => import("./pages/History"));
@@ -39,9 +38,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-sky-50 font-sans">
-      {/* Navbar */}
       <nav className="bg-white shadow-md pt-3 pr-6 pb-3 pl-6 relative flex items-center justify-between sticky top-0 z-10">
-        {/* Logo trái */}
         <h1
           onClick={() => (window.location.href = "/")}
           className="font-bold text-4xl text-green-500 tracking-tight cursor-pointer hover:opacity-80 transition"
@@ -49,7 +46,6 @@ export default function App() {
           Anto<span className="text-green-500">ree</span>
         </h1>
 
-        {/* Link giữa */}
         <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-6 text-lg text-gray-600 font-bold">
           <NavLink
             to="/"
@@ -90,8 +86,6 @@ export default function App() {
             Lịch sử
           </NavLink>
         </div>
-
-        {/* Giới thiệu, Liên hệ, Avatar bên phải */}
         <div className="flex items-center space-x-4 text-md text-gray-600 font-bold relative">
           <NavLink
             to="/about"
@@ -145,7 +139,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Nội dung trang */}
       <div className="p-6 max-w-7xl mx-auto">
         <Suspense fallback={<LoadingCircle />}>
           <Routes>
@@ -168,10 +161,22 @@ export default function App() {
 
       {/* Giao diện Chatbot */}
       {showChatBot && (
-        <div className="fixed bottom-20 right-20 w-96 z-50">
-          <Suspense fallback={<LoadingCircle />}>
-            <ChatBot />
-          </Suspense>
+        <div className="fixed bottom-20 right-20 w-96 z-50 bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="flex justify-end p-2 border-b">
+            <button
+              onClick={() => setShowChatBot(false)}
+              className="text-gray-500 hover:text-red-500 text-xl font-bold"
+              title="Đóng"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div className="p-4">
+            <Suspense fallback={<LoadingCircle />}>
+              <ChatBot />
+            </Suspense>
+          </div>
         </div>
       )}
     </div>
