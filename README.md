@@ -8,8 +8,9 @@ npm install
 start:
 npm run dev
 
-
 click + ctrl (hoặc copy):  http://localhost:5173/
 
 mock API: https://6871e3c576a5723aacd2fb84.mockapi.io/api/product
 
+
+Link demo vercel: https://fe-antoree-test.vercel.app/
